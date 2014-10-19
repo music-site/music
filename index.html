@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Smart Homecare</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href="css/music.css" type="text/css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+
+<script src="js/jquery-1.9.1.min.js"></script>
+</head>
+<body class="home">
+<div id="outer_wrapper">
+	<div class="music-wrapper">
+        <audio id="music-play">
+          <source src="" type="audio/mpeg" />
+        Your browser does not support the audio element.
+        </audio>
+    </div>
+	<div id="top">
+    	<div class="home-link"><a href="index.html"><span class="home-img"></span></a></div>
+		<div id="logo">
+		
+		</div>
+	</div>
+	<div id="wrapper">
+	<ul>
+		<li class="list"><a class="item-title" href="about.html">ABOUT</a></li>
+		<li class="list">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song1.mp3"></a>
+        </li>
+		<li class="list"><a class="item-title" href="#">DR.LOVE</a></li>
+		<li class="list">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song2.mp3"></a>
+        </li>
+		<li class="list last"><a class="item-title" href="news.html">NEWS</a></li>
+		<li class="list">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song1.mp3"></a>
+        </li>
+		<li class="list"><a class="item-title" href="#">DON'T BURN</a></li>
+		<li class="list">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song2.mp3"></a>
+        </li>
+		<li class="list"><a class="item-title" href="#">BULLY</a></li>
+		<li class="list last">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song3.mp3"></a>
+        </li>
+		<li class="list"><a class="item-title" href="photo.html">PHOTOS</a></li>
+		<li class="list">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song1.mp3"></a>
+        </li>
+		<li class="list"><a class="item-title" href="#">DONATE</a></li>
+		<li class="list">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song2.mp3"></a>
+        </li>
+		<li class="list last"><a class="item-title" href="#">VIDEOS</a></li>
+		<li class="list">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song1.mp3"></a>
+        </li>
+		<li class="list"><a class="item-title" href="#">LYRICS</a></li>
+		<li class="list">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song2.mp3"></a>
+        </li>
+		<li class="list"><a class="item-title" href="#">FAQS</a></li>
+		<li class="list last">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song3.mp3"></a>
+        </li>
+		<li class="list"><a class="item-title" href="#">GUEST BOOK</a></li>
+		<li class="list">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song1.mp3"></a>
+        </li>
+		<li class="list"><a class="item-title" href="#">SHARE</a></li>
+        <li class="list">
+            <div class="music-img" style="background-image: url('images/cd.jpg');"></div>
+            <a hidefocus="true" class="play-btn" title="play" href="#" data-music="musics/song2.mp3"></a>
+        </li>
+		<li class="list last"><a class="item-title" href="contact.html">CONTACT</a></li>
+		<div style="clear:both;"></div>
+	</ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+(function($){
+	var isplay = false;
+	var audio = document.getElementById("music-play");
+	$(".play-btn").click(function(){
+		var music_wrapper = $(this).parent();
+		if(!music_wrapper.hasClass("play") && !music_wrapper.hasClass("pause")){
+			$("#wrapper .list").removeClass("play").removeClass("pause");
+			$("#wrapper .list").addClass("music-reset");
+			music_wrapper.removeClass("music-reset");
+			audio.setAttribute("src", $(this).attr("data-music"));
+		}
+
+		if(music_wrapper.hasClass("play")){
+			music_wrapper.removeClass("play");
+			music_wrapper.addClass("pause");
+			audio.pause();	
+		}
+		else{
+			music_wrapper.addClass("play");
+			audio.play();		
+		}
+	});
+})(jQuery);	
+</script>
+</body>
+</html>
